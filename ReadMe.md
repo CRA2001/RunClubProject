@@ -87,7 +87,7 @@ RunningClubApp/
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/running-club-management.git
+git clone https://github.com/CRA2001/running-club-management.git
 ```
 
 Navigate into the project:
