@@ -17,60 +17,52 @@ def showPage(page):
     page.tkraise()
 
 
-#create container
+#--------------------------create container--------------------------
 container = ctk.CTkFrame(app)
 container.pack(fill="both",expand=True)
 container.grid_rowconfigure(0,weight=1)
 container.grid_columnconfigure(0,weight=1)
-#Main Page
-
+#--------------------------Main Page--------------------------
 mainPage = ctk.CTkFrame(container)
-
 title = ctk.CTkLabel(
     mainPage,
     text = "Run club project"
 )
+title.pack(pady=30)
 
+#--------------------------newEntryBtn--------------------------
 newEntryBtn = ctk.CTkButton(
     mainPage,
     text = "Enter new record",
     command = lambda: showPage(addPage)
 )
-
-viewRecordsBtn = ctk.CTkButton(
-    mainPage,
-    text = " View records",
-    command = lambda: showPage(viewRecords)
-)
-exitBtn = ctk.CTkButton(
-    mainPage,
-    text ="Exit",
-)
+newEntryBtn.pack(pady=20)
 addPage = ctk.CTkFrame(container)
 addTitle = ctk.CTkLabel(
     addPage,
     text="Add new record"
 )
-
+addTitle.pack(pady=30)
+#--------------------------View Records--------------------------
+viewRecordsBtn = ctk.CTkButton(
+    mainPage,
+    text = " View records",
+    command = lambda: showPage(viewRecords)
+)
+viewRecordsBtn.pack(pady=20)
 viewRecords = ctk.CTkFrame(container)
 viewRecordsTitle = ctk.CTkLabel(
     viewRecords,
     text="View Records"
 )
-
-
-#packing all home pages 
-title.pack(pady=30)
-newEntryBtn.pack(pady=20)
-viewRecordsBtn.pack(pady=20)
-exitBtn.pack(pady=20)
-
-
-#packing all addPage
-addTitle.pack(pady=30)
-
-#packing all ViewRecords
 viewRecordsTitle.pack(pady=30)
+
+#--------------------------Exit button--------------------------
+exitBtn = ctk.CTkButton(
+    mainPage,
+    text ="Exit",
+)
+exitBtn.pack(pady=20)
 
 for page in (mainPage,addPage,viewRecords):
     page.grid(row=0,column=0,sticky="nsew")
