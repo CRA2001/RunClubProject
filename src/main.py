@@ -12,7 +12,19 @@ app.geometry("500x500")
 #Title section
 
 # dataset
-records= []
+memberTime= []
+memberName= []
+
+def getInput():
+    name = nameEntry.get()
+    time = timeEntry.get()
+
+    memberName.append(name)
+    memberTime.append(time)
+    print("Added new values: ", [name,time])
+    print("Updated arrays: ")
+    print(memberName)
+    print(memberTime)
 
 def showPage(page):
     page.tkraise()
@@ -57,7 +69,7 @@ addTitle = ctk.CTkLabel(
 addTitle.grid(row=0,column=1,pady=30,padx=20)
 nameEntry = ctk.CTkEntry(
     addPage,
-    placeholder_text= "Enter name "   
+    placeholder_text= "Enter name "
 )
 nameEntry.grid(row=1,column=1,pady=30,padx=20)
 timeEntry = ctk.CTkEntry(
@@ -69,7 +81,7 @@ timeEntry.grid(row=4,column=1,pady=30,padx=20)
 submitbtn = ctk.CTkButton(
     addPage,
     text="Submit",
-    command=submitRecord
+    command=getInput
 )
 submitbtn.grid(row=5,column=1,pady=30,padx=20)
 
