@@ -93,12 +93,32 @@ viewRecordsBtn = ctk.CTkButton(
 )
 viewRecordsBtn.pack(pady=20)
 viewRecords = ctk.CTkFrame(container)
+returnBtn = ctk.CTkButton(
+    viewRecords,
+    text="Return",
+    command = lambda:showPage(mainPage)
+)
+returnBtn.grid(row=0,column=0,pady=30,padx=20)
+
 viewRecordsTitle = ctk.CTkLabel(
     viewRecords,
     text="View Records"
 )
-viewRecordsTitle.pack(pady=30)
-
+viewRecordsTitle.grid(row=0,column=1,pady=30,padx=20)
+#check if arrays have data in them
+'''
+if memberName == [] and memberTime == []:
+    ctk.CTkLabel(
+        viewRecords,
+        text="No records"
+    ).pack()
+else:
+    for i in range(len(memberName)):
+        ctk.CTkLabel(
+        viewRecords,
+        text = f"{memberName[i]} - {memberTime[i]} seconds"
+        ).pack()
+'''
 #--------------------------Exit button--------------------------
 exitBtn = ctk.CTkButton(
     mainPage,
